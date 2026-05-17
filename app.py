@@ -89,3 +89,21 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    @app.route("/post", methods=["GET", "POST"])
+@login_required
+def post():
+    if request.method == "POST":
+        body = request.form["body"].strip()
+        if body:
+            post = Post(body=body, author=current_user)
+            db.session.add(post)
+            db.session.commit()
+            return redirect(url_for("home"))
+    return render_template("post.html")
+
+@app.route("/")
+@login_required  # keep this if you want home to require login
+def home():
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    return render_template("index.html", current_user=current_user, posts=posts)
