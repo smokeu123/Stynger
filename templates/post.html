@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>New Post</h1>
+    <form method="POST">
+      <textarea name="body" rows="4" cols="50" placeholder="What's happening?" required></textarea>
+      <button type="submit">Post</button>
+    </form>
+    <a href="{{ url_for('home') }}">Back home</a>
+  </body>
+</html>

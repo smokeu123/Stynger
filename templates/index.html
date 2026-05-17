@@ -1,10 +1,19 @@
 <!doctype html>
 <html>
-  <head>
-    <title>My Flask Site</title>
-  </head>
   <body>
-    <h1>Hello from my website</h1>
-    <p>This site is built with Flask and deployed on Render.</p>
+    <h1>Stynger</h1>
+    <p>Logged in as {{ current_user.username }}</p>
+    <a href="{{ url_for('post') }}">New post</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+    <h2>Timeline</h2>
+    {% for post in posts %}
+      <div>
+        <strong>@{{ post.author.username }}</strong>
+        <p>{{ post.body }}</p>
+        <small>{{ post.created_at.strftime("%Y-%m-%d %H:%M") }}</small>
+      </div>
+      <hr>
+    {% endfor %}
   </body>
 </html>
