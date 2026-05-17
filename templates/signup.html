@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html>
   <body>
@@ -10,4 +11,18 @@
     </form>
     <a href="{{ url_for('login') }}">Log in</a>
   </body>
+=======
+<!doctype html>
+<html>
+  <body>
+    <h1>Sign Up</h1>
+    <form method="POST">
+      <input name="username" placeholder="Username" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button type="submit">Create account</button>
+    </form>
+    <a href="{{ url_for('login') }}">Log in</a>
+  </body>
+>>>>>>> e3eadad610affa871e23dc1210cc2796de2e8e01
 </html>
