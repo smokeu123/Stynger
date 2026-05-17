@@ -90,7 +90,7 @@ def logout():
 if __name__ == "__main__":
     app.run(debug=True)
 
-    @app.route("/post", methods=["GET", "POST"])
+@app.route("/post", methods=["GET", "POST"])
 @login_required
 def post():
     if request.method == "POST":
